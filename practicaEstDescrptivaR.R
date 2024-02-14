@@ -161,26 +161,28 @@ lines(density(num_cuentas), col = "red")
 #13
 barplot(num_cuentas, xlab = "yacimientos", col = "yellow")
 
-#PENDIENTE DE CORRECIÓN - Actividad 14
+#14
+tipo_artefacto <- c("Grande","Mediano","Pequeño")
+material <- c("Grande","Mediano","Pequeño")
+periodo_cultural <- c("Prehistoria","Clásico","Medieval")
+estado_conservación <- c("Bueno","Neutro","Malo")
+ubicación <- c("Segovia","Lugo","Cáceres")
 
 set.seed(123)
-nuevas_muestras <- 10
+muestra_tipo_artefacto <- sample(tipo_artefacto, 10, replace = TRUE)
+muestra_material <- sample(material, 10, replace = TRUE)
+muestra_periodo_cultural <- sample(periodo_cultural, 10, replace = TRUE)
+muestra_estado_conservación <- sample(estado_conservación, 10, replace = TRUE)
+muestra_ubicación <- sample(ubicación, 10, replace = TRUE)
 
-tipo_artefacto <- sample(c("Grande","Mediano","Pequeño"))
+tabla_freq_tip_art <- table(muestra_tipo_artefacto)
+tabla_freq_mat <- table(muestra_material)
+tabla_freq_per_cul <- table(muestra_periodo_cultural)
+tabla_freq_est_con <- table(estado_conservación)
+tabla_freq_ubi <- table(muestra_ubicación)
 
-tipo_artefacto <- sample(c("Hueso","Moneda","Cerámica"), replace = TRUE)
-table(frequency(tipo_artefacto))
-
-material <- sample(c("Grande","Mediano","Pequeño"), nuevas_muestras, replace = TRUE)
-periodo_cultural <- sample(c("Prehistoria","Clásico","Medieval"), nuevas_muestras, replace = TRUE)
-estado_conservación <- sample(c("Bueno","Neutro","Malo"), nuevas_muestras, replace = TRUE)
-ubicación <- sample(c("Segovia","Lugo","Cáceres"),nuevas_muestras, replace = TRUE)
-
-muestras <- table(
-  tipo_artefacto = tipo_artefacto,
-  material = material,
-  periodo_cultural = periodo_cultural,
-  estado_conservación = estado_conservación,
-  ubicación = ubicación
-)
-print(muestras)
+print(tabla_freq_tip_art)
+print(tabla_freq_mat)
+print(tabla_freq_per_cul)
+print(tabla_freq_est_con)
+print(tabla_freq_ubi)
